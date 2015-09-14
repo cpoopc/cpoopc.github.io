@@ -278,10 +278,10 @@
 
 
   
-    <article id="post-My-New-Post" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Blog搭建" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/09/14/My-New-Post/" class="article-date">
+      <a href="/2015/09/14/Blog搭建/" class="article-date">
   	<time datetime="2015-09-14T02:54:59.000Z" itemprop="datePublished">2015-09-14</time>
 </a>
     </div>
@@ -295,7 +295,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/09/14/My-New-Post/">呵呵</a>
+      <a class="article-title" href="/2015/09/14/Blog搭建/">Blog搭建</a>
     </h1>
   
 
@@ -304,7 +304,23 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>ceshi</p>
+        <p>Github Pages 可以免费托管静态网站,静态博客有许多现成的工具可以生成(如Hexo),所以可以很方便的搭建一个个人博客.所以cpoopc博客就诞生了 :)<br>简要归纳下搭建步骤</p>
+<h2 id="搭建步骤">搭建步骤</h2><h3 id="1-github创建repository,这个repository的命名规则为:username-github-io">1.github创建repository,这个repository的命名规则为:username.github.io</h3><h3 id="2-安装Hexo_(基础软件Nodejs,Git,在此略过,默认已经安装)">2.安装Hexo (基础软件<a href="http://nodejs.org/" target="_blank" rel="external">Nodejs</a>,<a href="http://git-scm.com/" target="_blank" rel="external">Git</a>,在此略过,默认已经安装)</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
+<h3 id="3-新建存放目录(blog),使用Hexo生成博客静态网站">3.新建存放目录(blog),使用Hexo生成博客静态网站</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ hexo init blog</span><br><span class="line">$ <span class="built_in">cd</span> blog</span><br><span class="line">$ npm install</span><br><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p>hexo server执行后,命令行提示<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">INFO  Hexo is running at http://<span class="number">0.0</span>.<span class="number">0.0</span>:<span class="number">4000</span>/. Press Ctrl+C to stop.</span><br></pre></td></tr></table></figure></p>
+<p>这时候浏览器打开 <a href="http://localhost:4000/,就看到搭建在本地的博客主页啦.不过有点简陋" target="_blank" rel="external">http://localhost:4000/,就看到搭建在本地的博客主页啦.不过有点简陋</a>.</p>
+<h3 id="4-使用自定义风格">4.使用自定义风格</h3><p>网上有许多人做好并分享了漂亮的主题,比如<a href="http://litten.github.io/2014/08/31/hexo-theme-yilia/" target="_blank" rel="external">Yilia</a><br>直接拿来用<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="built_in">clone</span> https://github.com/litten/hexo-theme-yilia.git themes/yilia</span><br></pre></td></tr></table></figure></p>
+<p>编辑blog/_config.yml文件,配置<br><figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">theme</span>: <span class="string">yilia</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="5-发布到github">5.发布到github</h3><p>编辑blog/_config.yml文件,配置<br><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">deploy</span>:</span><br><span class="line"><span class="attribute">type</span>: github</span><br><span class="line"><span class="attribute">repository</span>: git<span class="variable">@github</span>.<span class="attribute">com</span>:cpoopc/cpoopc.github.io.git</span><br><span class="line"><span class="attribute">branch</span>: master</span><br></pre></td></tr></table></figure></p>
+<p>执行hexo指令,上传到github<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure></p>
+<h3 id="6-域名绑定">6.域名绑定</h3><p>blog/source目录中创建CNAME文件,内容为我的域名 cpoopc.cn<br>到购买域名的网站上,设置域名解析,<br>把github的ip 192.30.252.154配置进去.<br>大功告成!可以开始happy的写博客了!</p>
+<h2 id="写博客">写博客</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new post</span><br></pre></td></tr></table></figure>
+<p>执行生成source/_posts/post.md<br>编辑器打开post.md,就开始写咯.<br>好了,可以去熟悉下<a href="http://sspai.com/25137" target="_blank" rel="external">MarkDown</a>语法了.</p>
+<h2 id="Tip">Tip</h2><ol>
+<li>hexo generate –watch  // 监听文件变化,自动generate</li>
+<li>使用yilia主题时,配置文件中<br>duoshuo: cpoopc<br>打开<a href="http://duoshuo.com/" target="_blank" rel="external">多说</a>评论系统.</li>
+<li>备份source,themes到github,方便在其他地方继续写博客</li>
+</ol>
 
       
     </div>
